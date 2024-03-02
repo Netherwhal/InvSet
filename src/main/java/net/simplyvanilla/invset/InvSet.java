@@ -1,4 +1,4 @@
-package me.hsgamer.invset;
+package net.simplyvanilla.invset;
 
 import de.tr7zw.changeme.nbtapi.utils.MinecraftVersion;
 import me.hsgamer.hscore.bukkit.command.CommandManager;

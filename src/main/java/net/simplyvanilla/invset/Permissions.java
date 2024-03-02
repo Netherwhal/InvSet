@@ -1,4 +1,4 @@
-package me.hsgamer.invset;
+package net.simplyvanilla.invset;
 
 import org.bukkit.Bukkit;
 import org.bukkit.permissions.Permission;

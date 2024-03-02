@@ -1,4 +1,4 @@
-package me.hsgamer.invset;
+package net.simplyvanilla.invset;
 
 import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.iface.ReadWriteNBT;
