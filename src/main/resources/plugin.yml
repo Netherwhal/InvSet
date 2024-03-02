@@ -1,0 +1,5 @@
+name: InvSet
+version: '${version}'
+main: me.hsgamer.invset.InvSet
+api-version: '1.20'
+folia-supported: true
