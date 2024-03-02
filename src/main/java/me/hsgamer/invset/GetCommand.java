@@ -1,8 +1,8 @@
 package me.hsgamer.invset;
 
-import com.google.gson.Gson;
 import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.iface.ReadWriteNBT;
+import de.tr7zw.changeme.nbtapi.iface.ReadWriteNBTCompoundList;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -10,9 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GetCommand extends Command {
     private final InvSet plugin;
@@ -43,19 +41,19 @@ public class GetCommand extends Command {
         boolean end = args.length >= 2 && args[1].equalsIgnoreCase("end");
         Inventory inventory = end ? target.getEnderChest() : target.getInventory();
 
-        Map<Integer, String> result = new HashMap<>();
+        ReadWriteNBT container = NBT.createNBTObject();
+        ReadWriteNBTCompoundList list = container.getCompoundList("items");
         for (int i = 0; i < inventory.getSize(); i++) {
             ItemStack item = inventory.getItem(i);
             if (item != null) {
-                ReadWriteNBT nbt = NBT.itemStackToNBT(item);
-                String nbtString = nbt.toString();
-                result.put(i, nbtString);
+                ReadWriteNBT compound = list.addCompound();
+                compound.mergeCompound(NBT.itemStackToNBT(item));
+                compound.setByte("Slot", (byte) i);
             }
         }
 
-        Gson gson = new Gson();
-        String json = gson.toJson(result);
-        sender.sendMessage(json);
+        String nbtString = list.toString();
+        sender.sendMessage(nbtString);
 
         return true;
     }
