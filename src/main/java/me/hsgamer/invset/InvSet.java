@@ -20,6 +20,7 @@ public final class InvSet extends JavaPlugin {
         Permissions.register();
 
         commandManager.register(new GetCommand(this));
+        commandManager.register(new AirCommand(this));
         CommandManager.syncCommand();
     }
 
