@@ -10,6 +10,7 @@ public final class InvSet extends JavaPlugin {
     public void onEnable() {
         Permissions.register();
 
+        commandManager.register(new GetCommand(this));
         CommandManager.syncCommand();
     }
 
