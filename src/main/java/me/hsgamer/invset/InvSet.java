@@ -10,7 +10,6 @@ public final class InvSet extends JavaPlugin {
     @Override
     public void onLoad() {
         MinecraftVersion.disableBStats();
-        MinecraftVersion.disablePackageWarning();
         MinecraftVersion.disableUpdateCheck();
         MinecraftVersion.replaceLogger(this.getLogger());
         MinecraftVersion.getVersion();
