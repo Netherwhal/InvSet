@@ -6,16 +6,3 @@ folia-supported: true
 
 author: Simply Vanilla
 website: https://github.com/SimplyVanilla/InvSet
-
-commands:
-  getinv:
-    description: Get the inventory of a player
-    usage: |
-      /getinv <player> [end]
-    permission: op
-
-  airinv:
-    description: Set a slot of the inventory to air
-    usage: |
-      /airinv <player> <slot> [end]
-    permission: op
