@@ -8,11 +8,14 @@ public final class InvSet extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Permissions.register();
 
+        CommandManager.syncCommand();
     }
 
     @Override
     public void onDisable() {
         commandManager.unregisterAll();
+        Permissions.unregister();
     }
 }
